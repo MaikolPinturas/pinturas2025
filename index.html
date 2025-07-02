@@ -2,11 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pinturas de Maikol Muñoz</title>
 
-  
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta name="description" content="Cuadros únicos pintados por Maikol Muñoz. Naturaleza, color y emoción en cada obra.">
+  <meta property="og:title" content="Pinturas de Maikol Muñoz" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" />
+  <meta property="og:description" content="Arte hecho con pasión, amor y color. Compra tus cuadros favoritos." />
+  <meta property="og:url" content="https://maikolpinturas.github.io/pinturas2025/" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -22,9 +27,23 @@
       text-align: center;
     }
 
-    section.intro {
+    nav {
+      background-color: #f4e1d2;
+      padding: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #a0522d;
+      font-weight: bold;
+    }
+
+    section.intro, .carrito, footer {
       padding: 2rem;
-      text-align: center;
     }
 
     .galeria {
@@ -46,6 +65,7 @@
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 10px;
+      cursor: pointer;
     }
 
     .item button {
@@ -55,25 +75,18 @@
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-radius: 5px;
+      margin: 5px;
     }
 
     .item button:hover {
       background-color: #8b4513;
     }
 
-    .carrito {
-      padding: 2rem;
-      background-color: #f4e1d2;
-    }
-
-    .carrito h2 {
-      margin-top: 0;
-    }
-
-    footer {
-      background-color: #f4e1d2;
-      text-align: center;
-      padding: 1rem;
+    .carrito li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
     }
 
     .redes a {
@@ -82,60 +95,77 @@
       color: #a0522d;
       font-weight: bold;
     }
+
+    #btn-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      padding: 0.7rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+    }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Pinturas de Maikol Muñoz</h1>
     <p>Arte hecho con pasión, amor y color</p>
   </header>
+
+  <nav class="text-center">
+    <a href="#galeria">Galería</a>
+    <a href="#carrito">Carrito</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
   <section class="intro">
     <h2>Bienvenidos a mi página</h2>
     <p>Hola, soy Maikol Muñoz. Pinto cuadros inspirados en la naturaleza, los colores y las emociones. Aquí puedes ver algunas de mis obras y contactarme para encargos o ventas.</p>
   </section>
 
-<section class="galeria">
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Cuadro Africana">
-    <h3>Africana</h3>
-    <p>Precio: $50.000</p>
-    <button onclick="agregarAlCarrito('Africana', 50000)">Agregar al carrito</button>
-  </div>
+  <section class="galeria" id="galeria">
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Africana" onclick="abrirModal(this)">
+      <h3>Africana</h3>
+      <p>Precio: $50.000</p>
+      <button onclick="agregarAlCarrito('Africana', 50000)">Agregar</button>
+    </div>
 
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Negrita.jpg" alt="Cuadro Negrita">
-    <h3>Negrita</h3>
-    <p>Precio: $49.990</p>
-    <button onclick="agregarAlCarrito('Negrita', 49990)">Agregar al carrito</button>
-  </div>
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Negrita.jpg" alt="Negrita" onclick="abrirModal(this)">
+      <h3>Negrita</h3>
+      <p>Precio: $49.990</p>
+      <button onclick="agregarAlCarrito('Negrita', 49990)">Agregar</button>
+    </div>
 
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen7.jpg" alt="Cuadro Colores Vivos">
-    <h3>Colores Vivos</h3>
-    <p>Precio: $45.000</p>
-    <button onclick="agregarAlCarrito('Colores Vivos', 45000)">Agregar al carrito</button>
-  </div>
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen7.jpg" alt="Colores Vivos" onclick="abrirModal(this)">
+      <h3>Colores Vivos</h3>
+      <p>Precio: $45.000</p>
+      <button onclick="agregarAlCarrito('Colores Vivos', 45000)">Agregar</button>
+    </div>
 
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen5.jpg" alt="Cuadro Expresiones del Alma">
-    <h3>Expresiones del Alma</h3>
-    <p>Precio: $47.000</p>
-    <button onclick="agregarAlCarrito('Expresiones del Alma', 47000)">Agregar al carrito</button>
-  </div>
-</section>
+    <div class="item">
+      <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen5.jpg" alt="Expresiones del Alma" onclick="abrirModal(this)">
+      <h3>Expresiones del Alma</h3>
+      <p>Precio: $47.000</p>
+      <button onclick="agregarAlCarrito('Expresiones del Alma', 47000)">Agregar</button>
+    </div>
+  </section>
 
-
-
-  <section class="carrito">
+  <section class="carrito" id="carrito">
     <h2>Carrito de compras</h2>
     <ul id="lista-carrito"></ul>
     <p id="total">Total: $0</p>
-    <button onclick="enviarPedido()">Enviar pedido</button>
+    <button onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
   </section>
 
-  <footer>
+  <footer id="contacto">
+    <h4>Contacto</h4>
     <div class="redes">
       <a href="https://instagram.com">Instagram</a>
       <a href="https://facebook.com">Facebook</a>
@@ -143,6 +173,18 @@
     </div>
     <p>&copy; 2025 Maikol Muñoz - Todos los derechos reservados</p>
   </footer>
+
+  <button id="btn-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+  <div class="modal fade" id="imagenModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <img src="" class="w-100" id="imagenGrande" alt="Imagen ampliada">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     let carrito = [];
@@ -152,19 +194,22 @@
       actualizarCarrito();
     }
 
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
     function actualizarCarrito() {
       const lista = document.getElementById("lista-carrito");
       const total = document.getElementById("total");
       lista.innerHTML = "";
       let suma = 0;
-
-      carrito.forEach(item => {
+      carrito.forEach((item, i) => {
         const li = document.createElement("li");
-        li.textContent = `${item.nombre} - $${item.precio.toLocaleString()}`;
+        li.innerHTML = `${item.nombre} - $${item.precio.toLocaleString()} <button onclick="eliminarDelCarrito(${i})">X</button>`;
         lista.appendChild(li);
         suma += item.precio;
       });
-
       total.textContent = `Total: $${suma.toLocaleString()}`;
     }
 
@@ -173,22 +218,27 @@
         alert("El carrito está vacío.");
         return;
       }
-
       let mensaje = "Hola, quiero comprar los siguientes cuadros:\n";
       carrito.forEach(item => {
         mensaje += `- ${item.nombre} ($${item.precio.toLocaleString()})\n`;
       });
-
       const total = carrito.reduce((sum, item) => sum + item.precio, 0);
       mensaje += `\nTotal: $${total.toLocaleString()}`;
-
       const whatsapp = "https://wa.me/56936692045?text=" + encodeURIComponent(mensaje);
       window.open(whatsapp, "_blank");
     }
 
-    
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    function abrirModal(img) {
+      const modalImg = document.getElementById("imagenGrande");
+      modalImg.src = img.src;
+      new bootstrap.Modal(document.getElementById('imagenModal')).show();
+    }
+
+    window.onscroll = function () {
+      document.getElementById("btn-top").style.display = window.scrollY > 300 ? "block" : "none";
+    }
   </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
