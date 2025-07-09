@@ -19,40 +19,35 @@
       background-color: #fff8f0;
       color: #333;
     }
-
     header {
       background-color: #a0522d;
       color: white;
       padding: 2rem;
       text-align: center;
     }
-
     nav {
       background-color: #f4e1d2;
       padding: 0.5rem;
       position: sticky;
       top: 0;
       z-index: 1000;
+      text-align: center;
     }
-
     nav a {
       margin: 0 15px;
       text-decoration: none;
       color: #a0522d;
       font-weight: bold;
     }
-
     section.intro, .carrito, footer {
       padding: 2rem;
     }
-
     .galeria {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
       padding: 2rem;
     }
-
     .item {
       background-color: white;
       border-radius: 10px;
@@ -60,14 +55,12 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
     }
-
     .item img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 10px;
       cursor: pointer;
     }
-
     .item button {
       background-color: #a0522d;
       color: white;
@@ -77,25 +70,21 @@
       border-radius: 5px;
       margin: 5px;
     }
-
     .item button:hover {
       background-color: #8b4513;
     }
-
     .carrito li {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 5px 0;
     }
-
     .redes a {
       margin: 0 10px;
       text-decoration: none;
       color: #a0522d;
       font-weight: bold;
     }
-
     #btn-top {
       position: fixed;
       bottom: 20px;
@@ -112,20 +101,17 @@
 </head>
 <body>
   <header>
-    <header>
-  <h1>Pinturas de Maikol Muñoz</h1>
-  <p>Arte hecho con pasión, amor y color</p>
-  <p style="font-size: 1rem; margin-top: 10px;">
-  Tengo 19 años y comencé a pintar a los 17, mientras estaba privado de libertad. Desde entonces descubrí en el acrílico sobre tela una pasión que me llena, me alegra y me hace sentir libre. Pintar se convirtió en mi forma de sanar, de expresarme y de dar color a la vida.
-  </p>
-</header>
-
+    <h1>Pinturas de Maikol Muñoz</h1>
+    <p>Arte hecho con pasión, amor y color</p>
+    <p style="font-size: 1rem; margin-top: 10px;">
+      Tengo 19 años y comencé a pintar a los 17, mientras estaba privado de libertad. Desde entonces descubrí en el acrílico sobre tela una pasión que me llena, me alegra y me hace sentir libre. Pintar se convirtió en mi forma de sanar, de expresarme y de dar color a la vida.
+    </p>
   </header>
 
-  <nav class="text-center">
+  <nav>
     <a href="#galeria">Galería</a>
     <a href="#carrito">Carrito</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#formulario-encargos">Encargos</a>
   </nav>
 
   <section class="intro">
@@ -154,9 +140,7 @@
     <div class="item">
       <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen7.jpg" alt="Alma de Ébano" onclick="abrirModal(this)">
       <h3>Alma de Ébano</h3>
-      <h4>Evoca profundidad, elegancia y misterio. Es ideal para esa mirada intensa y el contraste de tonos en la obra.
-
-</h4>
+      <h4>Evoca profundidad, elegancia y misterio. Es ideal para esa mirada intensa y el contraste de tonos en la obra.</h4>
       <p>Precio: $45.000</p>
       <button onclick="agregarAlCarrito('Alma de Ébano', 45000)">Agregar</button>
     </div>
@@ -172,20 +156,21 @@
     <div class="item">
       <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/gitarra.jpg" alt="Ritmo Abstracto" onclick="abrirModal(this)">
       <h3>Ritmo Abstracto</h3>
-      <h4>transmite la conexión entre la música, el arte visual y la emoción. </h4>
+      <h4>Transmite la conexión entre la música, el arte visual y la emoción.</h4>
       <p>Precio: $52.000</p>
       <button onclick="agregarAlCarrito('Ritmo Abstracto', 52000)">Agregar</button>
     </div>
 
     <div class="item">
       <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/cuadro_medio.jpg" alt="Ecos del Silencio" onclick="abrirModal(this)">
-      <h3>"Susurros del Otoño"</h3>
-      <h4>transmite Un instante de calma donde el viento pinta recuerdos.</h4>
+      <h3>Susurros del Otoño</h3>
+      <h4>Un instante de calma donde el viento pinta recuerdos.</h4>
       <p>Precio: $48.000</p>
       <button onclick="agregarAlCarrito('Ecos del Silencio', 48000)">Agregar</button>
     </div>
   </section>
 
+  <!-- CARRITO -->
   <section class="carrito" id="carrito">
     <h2>Carrito de compras</h2>
     <ul id="lista-carrito"></ul>
@@ -193,82 +178,44 @@
     <button onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
   </section>
 
-  <footer id="contacto">
-    <h4>Contacto</h4>
-    <div class="redes">
-      <a href="https://instagram.com">Instagram</a>
-      <a href="https://facebook.com">Facebook</a>
-      <a href="mailto:maikol.munozc@gmail.com">Email</a>
+  <!-- FORMULARIO DE ENCARGOS -->
+<section id="formulario-encargos" class="carrito">
+  <h2>Encarga tu cuadro personalizado</h2>
+  <form id="form-encargos" onsubmit="enviarEncargo(event)" class="row g-3">
+    <div class="col-md-6">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" required />
     </div>
-    <p>&copy; 2025 Maikol Muñoz - Todos los derechos reservados</p>
-  </footer>
-
-  <button id="btn-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
-
-  <div class="modal fade" id="imagenModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body p-0">
-          <img src="" class="w-100" id="imagenGrande" alt="Imagen ampliada">
-        </div>
-      </div>
+    <div class="col-md-6">
+      <label for="telefono" class="form-label">Teléfono (WhatsApp)</label>
+      <input type="tel" class="form-control" id="telefono" placeholder="+56912345678" required />
     </div>
-  </div>
+    <div class="col-12">
+      <label for="descripcion" class="form-label">Descripción del cuadro</label>
+      <textarea class="form-control" id="descripcion" rows="3" placeholder="Cuéntame qué quieres: tema, colores, tamaño..." required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" style="background-color:#a0522d; border:none;">Enviar encargo por WhatsApp</button>
+    </div>
+  </form>
+</section>
 
-  <script>
-    let carrito = [];
+<script>
+  function enviarEncargo(event) {
+    event.preventDefault(); // evitar que recargue la página
 
-    function agregarAlCarrito(nombre, precio) {
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const descripcion = document.getElementById('descripcion').value.trim();
+
+    if (!nombre || !telefono || !descripcion) {
+      alert('Por favor, completa todos los campos.');
+      return;
     }
 
-    function eliminarDelCarrito(index) {
-      carrito.splice(index, 1);
-      actualizarCarrito();
-    }
+    let mensaje = `Hola, soy ${nombre} y quiero encargar un cuadro personalizado.\nDescripción:\n${descripcion}`;
+    const whatsappUrl = `https://wa.me/${telefono.replace(/\D/g, '')}?text=${encodeURIComponent(mensaje)}`;
 
-    function actualizarCarrito() {
-      const lista = document.getElementById("lista-carrito");
-      const total = document.getElementById("total");
-      lista.innerHTML = "";
-      let suma = 0;
-      carrito.forEach((item, i) => {
-        const li = document.createElement("li");
-        li.innerHTML = `${item.nombre} - $${item.precio.toLocaleString()} <button onclick="eliminarDelCarrito(${i})">X</button>`;
-        lista.appendChild(li);
-        suma += item.precio;
-      });
-      total.textContent = `Total: $${suma.toLocaleString()}`;
-    }
-
-    function enviarPedido() {
-      if (carrito.length === 0) {
-        alert("El carrito está vacío.");
-        return;
-      }
-      let mensaje = "Hola, quiero comprar los siguientes cuadros:\n";
-      carrito.forEach(item => {
-        mensaje += `- ${item.nombre} ($${item.precio.toLocaleString()})\n`;
-      });
-      const total = carrito.reduce((sum, item) => sum + item.precio, 0);
-      mensaje += `\nTotal: $${total.toLocaleString()}`;
-      const whatsapp = "https://wa.me/56936692045?text=" + encodeURIComponent(mensaje);
-      window.open(whatsapp, "_blank");
-    }
-
-    function abrirModal(img) {
-      const modalImg = document.getElementById("imagenGrande");
-      modalImg.src = img.src;
-      new bootstrap.Modal(document.getElementById('imagenModal')).show();
-    }
-
-    window.onscroll = function () {
-      document.getElementById("btn-top").style.display = window.scrollY > 300 ? "block" : "none";
-    }
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
+    window.open(whatsappUrl, '_blank');
+  }
+</script>
