@@ -122,7 +122,64 @@
   <!-- GALERÍA DE PINTURAS -->
   <!-- GALERÍA DE PINTURAS -->
 <section class="galeria" id="galeria">
-  <!-- Cuadros anteriores -->
+  <style>
+    @media (max-width: 576px) {
+    .item {
+        min-height: auto;
+        padding: 1rem 0.5rem;
+    }
+
+    .item h3 {
+        font-size: 1.1rem;
+    }
+
+    .item h4 {
+        font-size: 0.9rem;
+    }
+
+    .item p {
+        margin: 0.5rem 0;
+    }
+
+    .item button {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    }
+
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      background-color: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      min-height: 560px; /* Ajusta según el contenido */
+    }
+
+    .item button {
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: auto;
+    }
+
+    .item button:hover {
+      background-color: #8b4513;
+    }
+
+    .item .btn-secondary {
+      background-color: gray;
+    }
+  </style>
+
   <div class="item">
     <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Raíz Serena" onclick="abrirModal(this)">
     <h3>Raíz Serena</h3>
@@ -132,38 +189,32 @@
   </div>
 
   <div class="item">
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Negrita.jpg" alt="Melodía Negra" onclick="abrirModal(this)">
-    <h3>Melodía Negra</h3>
-    <h4>Una oda visual a la belleza negra. El título sugiere ritmo, elegancia y orgullo de identidad.</h4>
-    <p>Precio: $49.990</p>
-    <button onclick="agregarAlCarrito('Melodía Negra', 49990)">Agregar</button>
-  </div>
-
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen7.jpg" alt="Alma de Ébano" onclick="abrirModal(this)">
-    <h3>Alma de Ébano</h3>
-    <h4>Evoca profundidad, elegancia y misterio. Es ideal para esa mirada intensa y el contraste de tonos en la obra.</h4>
-    <p>Precio: $45.000</p>
-    <button onclick="agregarAlCarrito('Alma de Ébano', 45000)">Agregar</button>
-  </div>
-
-  <div class="item">
+    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
     <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/gitarra.jpg" alt="Ritmo Abstracto" onclick="abrirModal(this)">
     <h3>Ritmo Abstracto</h3>
     <h4>Transmite la conexión entre la música, el arte visual y la emoción.</h4>
     <p>Precio: $52.000</p>
-    <button onclick="agregarAlCarrito('Ritmo Abstracto', 52000)">Agregar</button>
+    <button class="btn btn-secondary" disabled>Agotado</button>
   </div>
 
   <div class="item">
+    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen7.jpg" alt="Alma de Ébano" onclick="abrirModal(this)">
+    <h3>Alma de Ébano</h3>
+    <h4>Evoca profundidad, elegancia y misterio. Es ideal para esa mirada intensa y el contraste de tonos en la obra.</h4>
+    <p>Precio: $45.000</p>
+    <button class="btn btn-secondary" disabled>Agotado</button>
+  </div>
+
+  <div class="item">
+    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
     <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/cuadro_medio.jpg" alt="Ecos del Silencio" onclick="abrirModal(this)">
     <h3>Susurros del Otoño</h3>
     <h4>Un instante de calma donde el viento pinta recuerdos.</h4>
     <p>Precio: $48.000</p>
-    <button onclick="agregarAlCarrito('Ecos del Silencio', 48000)">Agregar</button>
+    <button class="btn btn-secondary" disabled>Agotado</button>
   </div>
 
-  <!-- NUEVOS CUADROS AGREGADOS -->
   <div class="item">
     <img src="https://i.imgur.com/pW9Tfg7.jpeg" alt="Horizonte Encendido">
     <h3>Horizonte Encendido</h3>
@@ -173,21 +224,22 @@
   </div>
 
   <div class="item">
+    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
     <img src="https://i.imgur.com/ckmdrOs.jpeg" alt="Sueños Vibrantes">
     <h3>Sueños Vibrantes</h3>
     <h4>Colores vivos y formas dinámicas que expresan energía y creatividad en movimiento.</h4>
     <p>Precio: $46.000</p>
-    <button onclick="agregarAlCarrito('Sueños Vibrantes', 46000)">Agregar</button>
+    <button class="btn btn-secondary" disabled>Agotado</button>
   </div>
 
   <div class="item">
+    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
     <img src="https://i.imgur.com/OTtIXmi.jpeg" alt="Ritmo Silente">
     <h3>Ritmo Silente</h3>
     <h4>Composición que transmite calma y ritmo pausado con tonos neutros y suaves.</h4>
     <p>Precio: $44.000</p>
-    <button onclick="agregarAlCarrito('Ritmo Silente', 44000)">Agregar</button>
+    <button class="btn btn-secondary" disabled>Agotado</button>
   </div>
-
 
   <div class="item">
     <img src="https://i.imgur.com/Z2xDG3I.jpeg" alt="Reflejos del Alma">
@@ -221,6 +273,7 @@
     <button onclick="agregarAlCarrito('Despertar Cósmico', 43000)">Agregar</button>
   </div>
 </section>
+
 
   <!-- CARRITO -->
   <section class="carrito" id="carrito">
@@ -270,6 +323,23 @@
 
     window.open(whatsappUrl, '_blank');
   }
+
+    <!-- Modal para ampliar imagen -->
+    <div id="modal-imagen" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark">
+        <img id="imagen-ampliada" src="" class="img-fluid rounded" />
+        </div>
+    </div>
+    </div>
+
+    function abrirModal(img) {
+        const modalImg = document.getElementById("imagen-ampliada");
+        modalImg.src = img.src;
+        const modal = new bootstrap.Modal(document.getElementById('modal-imagen'));
+        modal.show();
+    }
+
 </script>
 
 
