@@ -12,6 +12,7 @@
   <meta property="og:url" content="https://maikolpinturas.github.io/pinturas2025/" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -49,17 +50,35 @@
       padding: 2rem;
     }
     .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
       background-color: white;
       border-radius: 10px;
       padding: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
+      min-height: 560px; /* Ajusta según el contenido */
     }
     .item img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 10px;
       cursor: pointer;
+    }
+    .item h3 {
+      margin-bottom: 0.3rem;
+    }
+    .item h4 {
+      font-weight: normal;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+      color: #666;
+    }
+    .item p {
+      font-weight: bold;
+      margin-bottom: 0.7rem;
     }
     .item button {
       background-color: #a0522d;
@@ -68,10 +87,15 @@
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-radius: 5px;
-      margin: 5px;
+      margin-top: auto;
+      transition: background-color 0.3s ease;
     }
     .item button:hover {
       background-color: #8b4513;
+    }
+    .item .btn-secondary {
+      background-color: gray;
+      cursor: not-allowed;
     }
     .carrito li {
       display: flex;
@@ -98,108 +122,136 @@
       display: none;
     }
 
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/56912345678" target="_blank" id="btn-wsp">
-    💬 Comprar por WhatsApp
-    </a>
-
-    <style>
+    /* Botón flotante WhatsApp */
     #btn-wsp {
-        position: fixed;
-        bottom: 80px;
-        right: 20px;
-        background-color: #25D366;
-        color: white;
-        font-weight: bold;
-        padding: 10px 15px;
-        border-radius: 30px;
-        text-decoration: none;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        z-index: 1000;
-        transition: background-color 0.3s ease;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: background-color 0.3s ease;
     }
 
     #btn-wsp:hover {
-        background-color: #1da851;
+      background-color: #1da851;
     }
 
     @media (max-width: 576px) {
-        #btn-wsp {
+      #btn-wsp {
         font-size: 0.9rem;
         padding: 8px 12px;
-        }
+      }
+      .item {
+        min-height: auto;
+        padding: 1rem 0.5rem;
+      }
+      .item h3 {
+        font-size: 1.1rem;
+      }
+      .item h4 {
+        font-size: 0.9rem;
+      }
+      .item p {
+        margin: 0.5rem 0;
+      }
+      .item button {
+        font-size: 0.9rem;
+        width: 100%;
+      }
     }
-    </style>
+  </style>
 
-    <!-- Modal de imagen ampliada -->
-    <div id="modal-imagen" class="modal fade" tabindex="-1">
+  <!-- Modal de imagen ampliada -->
+  <div id="modal-imagen" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content bg-dark border-0">
+      <div class="modal-content bg-dark border-0">
         <img id="imagen-ampliada" src="" class="img-fluid rounded" />
-        </div>
+      </div>
     </div>
-    </div>
+  </div>
 
-    <!-- Bootstrap JS (necesario para que funcione el modal) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS (necesario para modal) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-  function abrirModal(img) {
-    const modalImg = document.getElementById("imagen-ampliada");
-    modalImg.src = img.src;
-    const modal = new bootstrap.Modal(document.getElementById('modal-imagen'));
-    modal.show();
-  }
-</script>
-<script>
-  const carrito = [];
-
-  function agregarAlCarrito(nombre, precio) {
-    carrito.push({ nombre, precio });
-    actualizarCarrito();
-  }
-
-  function actualizarCarrito() {
-    const lista = document.getElementById("lista-carrito");
-    lista.innerHTML = "";
-    let total = 0;
-
-    carrito.forEach((item, index) => {
-      total += item.precio;
-      const li = document.createElement("li");
-      li.innerHTML = `
-        ${item.nombre} - $${item.precio.toLocaleString()}
-        <button onclick="eliminarDelCarrito(${index})" style="margin-left: 10px;">❌</button>
-      `;
-      lista.appendChild(li);
-    });
-
-    document.getElementById("total").textContent = `Total: $${total.toLocaleString()}`;
-  }
-
-  function eliminarDelCarrito(index) {
-    carrito.splice(index, 1);
-    actualizarCarrito();
-  }
-
-  function enviarPedido() {
-    if (carrito.length === 0) {
-      alert("Tu carrito está vacío.");
-      return;
+  <script>
+    function abrirModal(img) {
+      const modalImg = document.getElementById("imagen-ampliada");
+      modalImg.src = img.src;
+      const modal = new bootstrap.Modal(document.getElementById('modal-imagen'));
+      modal.show();
     }
 
-    let mensaje = "Hola, quiero comprar los siguientes cuadros:%0A";
-    carrito.forEach(item => {
-      mensaje += `- ${item.nombre}: $${item.precio.toLocaleString()}%0A`;
-    });
+    const carrito = [];
 
-    const total = carrito.reduce((sum, item) => sum + item.precio, 0);
-    mensaje += `%0ATotal: $${total.toLocaleString()}`;
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    }
 
-    window.open(`https://wa.me/+56961269336?text=${mensaje}`, "_blank");
-  }
-</script>
+    function actualizarCarrito() {
+      const lista = document.getElementById("lista-carrito");
+      lista.innerHTML = "";
+      let total = 0;
 
+      carrito.forEach((item, index) => {
+        total += item.precio;
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${item.nombre} - $${item.precio.toLocaleString()}
+          <button onclick="eliminarDelCarrito(${index})" style="margin-left: 10px;">❌</button>
+        `;
+        lista.appendChild(li);
+      });
+
+      document.getElementById("total").textContent = `Total: $${total.toLocaleString()}`;
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
+    function enviarPedido() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      let mensaje = "Hola, quiero comprar los siguientes cuadros:%0A";
+      carrito.forEach(item => {
+        mensaje += `- ${item.nombre}: $${item.precio.toLocaleString()}%0A`;
+      });
+
+      const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      mensaje += `%0ATotal: $${total.toLocaleString()}`;
+
+      window.open(`https://wa.me/+56961269336?text=${mensaje}`, "_blank");
+    }
+
+    function enviarEncargo(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const descripcion = document.getElementById('descripcion').value.trim();
+
+      if (!nombre || !telefono || !descripcion) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+
+      let mensaje = `Hola, soy ${nombre} y quiero encargar un cuadro personalizado.\nDescripción:\n${descripcion}`;
+      const whatsappUrl = `https://wa.me/${telefono.replace(/\D/g, '')}?text=${encodeURIComponent(mensaje)}`;
+
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -222,211 +274,183 @@
   </section>
 
   <!-- GALERÍA DE PINTURAS -->
-  <!-- GALERÍA DE PINTURAS -->
 <section class="galeria" id="galeria">
-  <style>
-    @media (max-width: 576px) {
-    .item {
-        min-height: auto;
-        padding: 1rem 0.5rem;
-    }
 
-    .item h3 {
-        font-size: 1.1rem;
-    }
+<div class="item">
+  <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Raíz Serena" onclick="abrirModal(this)">
+  <h3>Raíz Serena</h3>
+  <h4>Representa la fuerza y tranquilidad ancestral que transmite su mirada. Una conexión con la herencia cultural y la serenidad interior.</h4>
+  <p>Precio: $50.000</p>
+  <button onclick="agregarAlCarrito('Raíz Serena', 50000)">Agregar</button>
+</div>
 
-    .item h4 {
-        font-size: 0.9rem;
-    }
+<div class="item">
+  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+  <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/gitarra.jpg" alt="Ritmo Abstracto" onclick="abrirModal(this)">
+  <h3>Ritmo Abstracto</h3>
+  <h4>Transmite la conexión entre la música, el arte visual y la emoción.</h4>
+  <p>Precio: $52.000</p>
+  <button class="btn btn-secondary" disabled>Agotado</button>
+</div>
 
-    .item p {
-        margin: 0.5rem 0;
-    }
+<div class="item">
+  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+  <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/cuadro_medio.jpg" alt="Susurros del Otoño" onclick="abrirModal(this)">
+  <h3>Susurros del Otoño</h3>
+  <h4>Un instante de calma donde el viento pinta recuerdos.</h4>
+  <p>Precio: $48.000</p>
+  <button class="btn btn-secondary" disabled>Agotado</button>
+</div>
 
-    .item button {
-        font-size: 0.9rem;
-        width: 100%;
-    }
-    }
+<div class="item">
+  <img src="https://i.imgur.com/pW9Tfg7.jpeg" alt="Horizonte Encendido" onclick="abrirModal(this)">
+  <h3>Horizonte Encendido</h3>
+  <h4>Cielo cálido con trazos expresivos y energéticos que evocan un atardecer ardiente.</h4>
+  <p>Precio: $38.000</p>
+  <button onclick="agregarAlCarrito('Horizonte Encendido', 38000)">Agregar</button>
+</div>
 
+<div class="item">
+  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+  <img src="https://i.imgur.com/ckmdrOs.jpeg" alt="Sueños Vibrantes" onclick="abrirModal(this)">
+  <h3>Sueños Vibrantes</h3>
+  <h4>Colores vivos y formas dinámicas que expresan energía y creatividad en movimiento.</h4>
+  <p>Precio: $46.000</p>
+  <button class="btn btn-secondary" disabled>Agotado</button>
+</div>
 
-    .item {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      background-color: white;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      min-height: 560px; /* Ajusta según el contenido */
-    }
+<div class="item">
+  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+  <img src="https://i.imgur.com/OTtIXmi.jpeg" alt="Ritmo Silente" onclick="abrirModal(this)">
+  <h3>Ritmo Silente</h3>
+  <h4>Composición que transmite calma y ritmo pausado con tonos neutros y suaves.</h4>
+  <p>Precio: $44.000</p>
+  <button class="btn btn-secondary" disabled>Agotado</button>
+</div>
 
-    .item button {
-      background-color: #a0522d;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 5px;
-      margin-top: auto;
-    }
+<div class="item">
+  <img src="https://i.imgur.com/Z2xDG3I.jpeg" alt="Reflejos del Alma" onclick="abrirModal(this)">
+  <h3>Reflejos del Alma</h3>
+  <h4>Tonos suaves y formas abstractas que transmiten calma y profundidad emocional.</h4>
+  <p>Precio: $42.000</p>
+  <button onclick="agregarAlCarrito('Reflejos del Alma', 42000)">Agregar</button>
+</div>
 
-    .item button:hover {
-      background-color: #8b4513;
-    }
+<div class="item">
+  <img src="https://i.imgur.com/kfzhBCI.jpeg" alt="Paisaje Fragmentado" onclick="abrirModal(this)">
+  <h3>Paisaje Fragmentado</h3>
+  <h4>Composición moderna de líneas y bloques de color que recuerdan un entorno urbano estilizado.</h4>
+  <p>Precio: $40.000</p>
+  <button onclick="agregarAlCarrito('Paisaje Fragmentado', 40000)">Agregar</button>
+</div>
 
-    .item .btn-secondary {
-      background-color: gray;
-    }
-  </style>
+<div class="item">
+  <img src="https://i.imgur.com/F8RXNxZ.jpeg" alt="Energía Abstracta" onclick="abrirModal(this)">
+  <h3>Energía Abstracta</h3>
+  <h4>Movimiento caótico de formas y colores que simbolizan la intensidad creativa.</h4>
+  <p>Precio: $45.000</p>
+  <button onclick="agregarAlCarrito('Energía Abstracta', 45000)">Agregar</button>
+</div>
 
-  <div class="item">
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Raíz Serena" onclick="abrirModal(this)">
-    <h3>Raíz Serena</h3>
-    <h4>Representa la fuerza y tranquilidad ancestral que transmite su mirada. Una conexión con la herencia cultural y la serenidad interior.</h4>
-    <p>Precio: $50.000</p>
-    <button onclick="agregarAlCarrito('Raíz Serena', 50000)">Agregar</button>
-  </div>
+<div class="item">
+  <img src="https://i.imgur.com/2JJI7yy.jpeg" alt="Despertar Cósmico" onclick="abrirModal(this)">
+  <h3>Despertar Cósmico</h3>
+  <h4>Elementos circulares y trazos espaciales que invitan a un viaje interior y universal.</h4>
+  <p>Precio: $43.000</p>
+  <button onclick="agregarAlCarrito('Despertar Cósmico', 43000)">Agregar</button>
+</div>
 
-  <div class="item">
-    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/gitarra.jpg" alt="Ritmo Abstracto" onclick="abrirModal(this)">
-    <h3>Ritmo Abstracto</h3>
-    <h4>Transmite la conexión entre la música, el arte visual y la emoción.</h4>
-    <p>Precio: $52.000</p>
-    <button class="btn btn-secondary" disabled>Agotado</button>
-  </div>
+<div class="item">
+  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/barco.jpg?raw=true" alt="Sueños del Mar Infinito" onclick="abrirModal(this)">
+  <h3>Sueños del Mar Infinito</h3>
+  <h4>Una figura femenina emerge del azul profundo, rodeada de símbolos místicos y energía oceánica.</h4>
+  <p>Precio: $45.000</p>
+  <button onclick="agregarAlCarrito('Sueños del Mar Infinito', 45000)">Agregar</button>
+</div>
 
-  <div class="item">
-    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/imagen7.jpg" alt="Alma de Ébano" onclick="abrirModal(this)">
-    <h3>Alma de Ébano</h3>
-    <h4>Evoca profundidad, elegancia y misterio. Es ideal para esa mirada intensa y el contraste de tonos en la obra.</h4>
-    <p>Precio: $45.000</p>
-    <button class="btn btn-secondary" disabled>Agotado</button>
-  </div>
+<div class="item">
+  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo1.jpg?raw=true" alt="Raíces del Alma" onclick="abrirModal(this)">
+  <h3>Raíces del Alma</h3>
+  <h4>Una figura humana se funde con formas abstractas que evocan raíces y emociones profundas.</h4>
+  <p>Precio: $49.990</p>
+  <button onclick="agregarAlCarrito('Raíces del Alma', 49990)">Agregar</button>
+</div>
 
-  <div class="item">
-    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-    <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/cuadro_medio.jpg" alt="Ecos del Silencio" onclick="abrirModal(this)">
-    <h3>Susurros del Otoño</h3>
-    <h4>Un instante de calma donde el viento pinta recuerdos.</h4>
-    <p>Precio: $48.000</p>
-    <button class="btn btn-secondary" disabled>Agotado</button>
-  </div>
+<div class="item">
+  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo2.jpg?raw=true" alt="Despertar del Jaguar" onclick="abrirModal(this)">
+  <h3>Despertar del Jaguar</h3>
+  <h4>Ojos felinos vigilan con fuerza ancestral desde un mundo onírico lleno de simbolismo.</h4>
+  <p>Precio: $55.000</p>
+  <button onclick="agregarAlCarrito('Despertar del Jaguar', 55000)">Agregar</button>
+</div>
 
-  <div class="item">
-    <img src="https://i.imgur.com/pW9Tfg7.jpeg" alt="Horizonte Encendido">
-    <h3>Horizonte Encendido</h3>
-    <h4>Cielo cálido con trazos expresivos y energéticos que evocan un atardecer ardiente.</h4>
-    <p>Precio: $38.000</p>
-    <button onclick="agregarAlCarrito('Horizonte Encendido', 38000)">Agregar</button>
-  </div>
+<div class="item">
+  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/edificio.jpg?raw=true" alt="Fuego Interior" onclick="abrirModal(this)">
+  <h3>Fuego Interior</h3>
+  <h4>Una figura ardiente emerge entre llamas, representando pasión y transformación espiritual.</h4>
+  <p>Precio: $38.000</p>
+  <button onclick="agregarAlCarrito('Fuego Interior', 38000)">Agregar</button>
+</div>
 
-  <div class="item">
-    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-    <img src="https://i.imgur.com/ckmdrOs.jpeg" alt="Sueños Vibrantes">
-    <h3>Sueños Vibrantes</h3>
-    <h4>Colores vivos y formas dinámicas que expresan energía y creatividad en movimiento.</h4>
-    <p>Precio: $46.000</p>
-    <button class="btn btn-secondary" disabled>Agotado</button>
-  </div>
+<div class="item">
+  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Negrita.jpg?raw=true" alt="Alma Negra" onclick="abrirModal(this)">
+  <h3>Alma Negra</h3>
+  <h4>Una presencia imponente que encarna elegancia, poder y la profundidad espiritual de las raíces afrodescendientes.</h4>
+  <p>Precio: $47.000</p>
+  <button onclick="agregarAlCarrito('Alma Negra', 47000)">Agregar</button>
+</div>
 
-  <div class="item">
-    <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-    <img src="https://i.imgur.com/OTtIXmi.jpeg" alt="Ritmo Silente">
-    <h3>Ritmo Silente</h3>
-    <h4>Composición que transmite calma y ritmo pausado con tonos neutros y suaves.</h4>
-    <p>Precio: $44.000</p>
-    <button class="btn btn-secondary" disabled>Agotado</button>
-  </div>
+<div class="item">
+  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/edificiorojos.jpg?raw=true" alt="Sabiduría Cósmica" onclick="abrirModal(this)">
+  <h3>Sabiduría Cósmica</h3>
+  <h4>Un rostro sabio entre símbolos estelares nos invita a conectarnos con el conocimiento oculto del universo.</h4>
+  <p>Precio: $48.990</p>
+  <button onclick="agregarAlCarrito('Sabiduría Cósmica', 48990)">Agregar</button>
+</div>
 
-  <div class="item">
-    <img src="https://i.imgur.com/Z2xDG3I.jpeg" alt="Reflejos del Alma">
-    <h3>Reflejos del Alma</h3>
-    <h4>Tonos suaves y formas abstractas que transmiten calma y profundidad emocional.</h4>
-    <p>Precio: $42.000</p>
-    <button onclick="agregarAlCarrito('Reflejos del Alma', 42000)">Agregar</button>
-  </div>
+<div class="item">
+  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Audrey%20Hepburnstencil.jpg?raw=true" alt="stencil" onclick="abrirModal(this)">
+  <h3>Audrey Hepburn stencil</h3>
+  <h4>Colores vibrantes y trazos místicos dan vida a un ser espiritual en proceso de transformación. Inspirada en la elegancia atemporal de Audrey Hepburn.</h4>
+  <p>Precio: $55.000</p>
+  <button onclick="agregarAlCarrito('Renacer Chamánico', 55000)">Agregar</button>
+</div>
+<section> <!--fin de seccion galeria-->
 
-  <div class="item">
-    <img src="https://i.imgur.com/kfzhBCI.jpeg" alt="Paisaje Fragmentado">
-    <h3>Paisaje Fragmentado</h3>
-    <h4>Composición moderna de líneas y bloques de color que recuerdan un entorno urbano estilizado.</h4>
-    <p>Precio: $40.000</p>
-    <button onclick="agregarAlCarrito('Paisaje Fragmentado', 40000)">Agregar</button>
-  </div>
+<!-- CARRITO DE COMPRAS -->
+<section class="container mt-5">
+  <h2 class="mb-4">🛒 Carrito de Compras</h2>
+  <ul id="carrito" class="list-group mb-3"></ul>
+  <p><strong>Total: $<span id="total">0</span></strong></p>
+  <a id="whatsapp-link" class="btn btn-success" href="#" target="_blank">Comprar por WhatsApp</a>
+</section>
 
-  <div class="item">
-    <img src="https://i.imgur.com/F8RXNxZ.jpeg" alt="Energía Abstracta">
-    <h3>Energía Abstracta</h3>
-    <h4>Movimiento caótico de formas y colores que simbolizan la intensidad creativa.</h4>
-    <p>Precio: $45.000</p>
-    <button onclick="agregarAlCarrito('Energía Abstracta', 45000)">Agregar</button>
-  </div>
-
-  <div class="item">
-    <img src="https://i.imgur.com/2JJI7yy.jpeg" alt="Despertar Cósmico">
-    <h3>Despertar Cósmico</h3>
-    <h4>Elementos circulares y trazos espaciales que invitan a un viaje interior y universal.</h4>
-    <p>Precio: $43.000</p>
-    <button onclick="agregarAlCarrito('Despertar Cósmico', 43000)">Agregar</button>
-  </div>
+<!-- ENCARGOS PERSONALIZADOS -->
+<section class="container mt-5">
+  <h2 class="mb-4">🎨 Encargos Personalizados</h2>
+  <p>¿Quieres un cuadro único y personalizado? Escríbeme directamente por WhatsApp:</p>
+  <a href="https://wa.me/56961269336?text=Hola%2C%20quiero%20encargar%20un%20cuadro%20personalizado" class="btn btn-primary">Encargar por WhatsApp</a>
 </section>
 
 
-  <!-- CARRITO -->
-  <section class="carrito" id="carrito">
-    <h2>Carrito de compras</h2>
-    <ul id="lista-carrito"></ul>
-    <p id="total">Total: $0</p>
-    <button onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
-  </section>
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/+56961269336" target="_blank" id="btn-wsp">
+    💬 Comprar por WhatsApp
+  </a>
 
-  <!-- FORMULARIO DE ENCARGOS -->
-<section id="formulario-encargos" class="carrito">
-  <h2>Encarga tu cuadro personalizado</h2>
-  <form id="form-encargos" onsubmit="enviarEncargo(event)" class="row g-3">
-    <div class="col-md-6">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" required />
-    </div>
-    <div class="col-md-6">
-      <label for="telefono" class="form-label">Teléfono (WhatsApp)</label>
-      <input type="tel" class="form-control" id="telefono" placeholder="+56912345678" required />
-    </div>
-    <div class="col-12">
-      <label for="descripcion" class="form-label">Descripción del cuadro</label>
-      <textarea class="form-control" id="descripcion" rows="3" placeholder="Cuéntame qué quieres: tema, colores, tamaño..." required></textarea>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary" style="background-color:#a0522d; border:none;">Enviar encargo por WhatsApp</button>
-    </div>
-  </form>
-</section>
+  <button id="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Ir arriba">⬆️</button>
 
-<script>
-  function enviarEncargo(event) {
-    event.preventDefault(); // evitar que recargue la página
+  <footer>
+    <p>© 2025 Maikol Muñoz - Todos los derechos reservados</p>
+  </footer>
 
-    const nombre = document.getElementById('nombre').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    const descripcion = document.getElementById('descripcion').value.trim();
-
-    if (!nombre || !telefono || !descripcion) {
-      alert('Por favor, completa todos los campos.');
-      return;
-    }
-
-    let mensaje = `Hola, soy ${nombre} y quiero encargar un cuadro personalizado.\nDescripción:\n${descripcion}`;
-    const whatsappUrl = `https://wa.me/${telefono.replace(/\D/g, '')}?text=${encodeURIComponent(mensaje)}`;
-
-    window.open(whatsappUrl, '_blank');
-  }
-
-  
-</script>
-
- 
+  <script>
+    // Mostrar botón ir arriba solo si haces scroll
+    window.addEventListener('scroll', () => {
+      const btnTop = document.getElementById('btn-top');
+      if (window.scrollY > 200) btnTop.style.display = 'block';
+      else btnTop.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
