@@ -97,7 +97,109 @@
       cursor: pointer;
       display: none;
     }
-  </style>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/56912345678" target="_blank" id="btn-wsp">
+    💬 Comprar por WhatsApp
+    </a>
+
+    <style>
+    #btn-wsp {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+
+    #btn-wsp:hover {
+        background-color: #1da851;
+    }
+
+    @media (max-width: 576px) {
+        #btn-wsp {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        }
+    }
+    </style>
+
+    <!-- Modal de imagen ampliada -->
+    <div id="modal-imagen" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark border-0">
+        <img id="imagen-ampliada" src="" class="img-fluid rounded" />
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS (necesario para que funcione el modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  function abrirModal(img) {
+    const modalImg = document.getElementById("imagen-ampliada");
+    modalImg.src = img.src;
+    const modal = new bootstrap.Modal(document.getElementById('modal-imagen'));
+    modal.show();
+  }
+</script>
+<script>
+  const carrito = [];
+
+  function agregarAlCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const lista = document.getElementById("lista-carrito");
+    lista.innerHTML = "";
+    let total = 0;
+
+    carrito.forEach((item, index) => {
+      total += item.precio;
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${item.nombre} - $${item.precio.toLocaleString()}
+        <button onclick="eliminarDelCarrito(${index})" style="margin-left: 10px;">❌</button>
+      `;
+      lista.appendChild(li);
+    });
+
+    document.getElementById("total").textContent = `Total: $${total.toLocaleString()}`;
+  }
+
+  function eliminarDelCarrito(index) {
+    carrito.splice(index, 1);
+    actualizarCarrito();
+  }
+
+  function enviarPedido() {
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
+
+    let mensaje = "Hola, quiero comprar los siguientes cuadros:%0A";
+    carrito.forEach(item => {
+      mensaje += `- ${item.nombre}: $${item.precio.toLocaleString()}%0A`;
+    });
+
+    const total = carrito.reduce((sum, item) => sum + item.precio, 0);
+    mensaje += `%0ATotal: $${total.toLocaleString()}`;
+
+    window.open(`https://wa.me/+56961269336?text=${mensaje}`, "_blank");
+  }
+</script>
+
 </head>
 <body>
   <header>
@@ -324,23 +426,7 @@
     window.open(whatsappUrl, '_blank');
   }
 
-    <!-- Modal para ampliar imagen -->
-    <div id="modal-imagen" class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content bg-dark">
-        <img id="imagen-ampliada" src="" class="img-fluid rounded" />
-        </div>
-    </div>
-    </div>
-
-    function abrirModal(img) {
-        const modalImg = document.getElementById("imagen-ampliada");
-        modalImg.src = img.src;
-        const modal = new bootstrap.Modal(document.getElementById('modal-imagen'));
-        modal.show();
-    }
-
+  
 </script>
 
-
-
+ 
