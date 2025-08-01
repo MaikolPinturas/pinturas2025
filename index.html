@@ -59,7 +59,7 @@
       padding: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       text-align: center;
-      min-height: 560px; /* Ajusta según el contenido */
+      min-height: 560px;
     }
     .item img {
       max-width: 100%;
@@ -121,8 +121,6 @@
       cursor: pointer;
       display: none;
     }
-
-    /* Botón flotante WhatsApp */
     #btn-wsp {
       position: fixed;
       bottom: 80px;
@@ -137,11 +135,9 @@
       z-index: 1000;
       transition: background-color 0.3s ease;
     }
-
     #btn-wsp:hover {
       background-color: #1da851;
     }
-
     @media (max-width: 576px) {
       #btn-wsp {
         font-size: 0.9rem;
@@ -166,32 +162,36 @@
       }
     }
     .carrito {
-    background-color: #fff0e6;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  .carrito button {
-    background-color: #25D366;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-  }
-
+      background-color: #fff0e6;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .carrito button {
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
   </style>
+</head>
+<body>
 
-  <!-- Modal de imagen ampliada -->
-  <div id="modal-imagen" class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-dark border-0">
-        <img id="imagen-ampliada" src="" class="img-fluid rounded" />
-      </div>
+<!-- Modal de imagen ampliada -->
+<div id="modal-imagen" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark border-0">
+      <img id="imagen-ampliada" src="" class="img-fluid rounded" />
     </div>
   </div>
+</div>
 
-  <!-- Bootstrap JS (necesario para modal) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
 
   <script>
     function abrirModal(img) {
@@ -288,148 +288,222 @@
   </section>
 
   <!-- GALERÍA DE PINTURAS -->
-<section class="galeria" id="galeria">
+<section class="galeria container" id="galeria">
+  <div class="row">
 
-<div class="item">
-  <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Raíz Serena" onclick="abrirModal(this)">
-  <h3>Raíz Serena</h3>
-  <h4>Representa la fuerza y tranquilidad ancestral que transmite su mirada. Una conexión con la herencia cultural y la serenidad interior.</h4>
-  <p>Precio: $50.000</p>
-  <button onclick="agregarAlCarrito('Raíz Serena', 50000)">Agregar</button>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Raíz Serena" onclick="abrirModal(this)">
+        <h3>Raíz Serena</h3>
+        <h4>Representa la fuerza y tranquilidad ancestral que transmite su mirada. Una conexión con la herencia cultural y la serenidad interior.</h4>
+        <p>Precio: $50.000</p>
+        <button onclick="agregarAlCarrito('Raíz Serena', 50000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+        <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/gitarra.jpg" alt="Ritmo Abstracto" onclick="abrirModal(this)">
+        <h3>Ritmo Abstracto</h3>
+        <h4>Transmite la conexión entre la música, el arte visual y la emoción.</h4>
+        <p>Precio: $52.000</p>
+        <button class="btn btn-secondary" disabled>Agotado</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+        <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/cuadro_medio.jpg" alt="Susurros del Otoño" onclick="abrirModal(this)">
+        <h3>Susurros del Otoño</h3>
+        <h4>Un instante de calma donde el viento pinta recuerdos.</h4>
+        <p>Precio: $48.000</p>
+        <button class="btn btn-secondary" disabled>Agotado</button>
+      </div>
+    </div>
+
+    <!-- Las siguientes pinturas también deben ser envueltas de la misma forma -->
+
+  </div>
+</section> <!--fin de seccion galeria-->
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://i.imgur.com/pW9Tfg7.jpeg" alt="Horizonte Encendido" onclick="abrirModal(this)">
+        <h3>Horizonte Encendido</h3>
+        <h4>Cielo cálido con trazos expresivos y energéticos que evocan un atardecer ardiente.</h4>
+        <p>Precio: $38.000</p>
+        <button onclick="agregarAlCarrito('Horizonte Encendido', 38000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item position-relative">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+        <img src="https://i.imgur.com/ckmdrOs.jpeg" alt="Sueños Vibrantes" onclick="abrirModal(this)">
+        <h3>Sueños Vibrantes</h3>
+        <h4>Colores vivos y formas dinámicas que expresan energía y creatividad en movimiento.</h4>
+        <p>Precio: $46.000</p>
+        <button class="btn btn-secondary" disabled>Agotado</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item position-relative">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
+        <img src="https://i.imgur.com/OTtIXmi.jpeg" alt="Ritmo Silente" onclick="abrirModal(this)">
+        <h3>Ritmo Silente</h3>
+        <h4>Composición que transmite calma y ritmo pausado con tonos neutros y suaves.</h4>
+        <p>Precio: $44.000</p>
+        <button class="btn btn-secondary" disabled>Agotado</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="item">
-  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-  <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/gitarra.jpg" alt="Ritmo Abstracto" onclick="abrirModal(this)">
-  <h3>Ritmo Abstracto</h3>
-  <h4>Transmite la conexión entre la música, el arte visual y la emoción.</h4>
-  <p>Precio: $52.000</p>
-  <button class="btn btn-secondary" disabled>Agotado</button>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://i.imgur.com/kfzhBCI.jpeg" alt="Paisaje Fragmentado" onclick="abrirModal(this)">
+        <h3>Paisaje Fragmentado</h3>
+        <h4>Composición moderna de líneas y bloques de color que recuerdan un entorno urbano estilizado.</h4>
+        <p>Precio: $40.000</p>
+        <button onclick="agregarAlCarrito('Paisaje Fragmentado', 40000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://i.imgur.com/F8RXNxZ.jpeg" alt="Energía Abstracta" onclick="abrirModal(this)">
+        <h3>Energía Abstracta</h3>
+        <h4>Movimiento caótico de formas y colores que simbolizan la intensidad creativa.</h4>
+        <p>Precio: $45.000</p>
+        <button onclick="agregarAlCarrito('Energía Abstracta', 45000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://i.imgur.com/2JJI7yy.jpeg" alt="Despertar Cósmico" onclick="abrirModal(this)">
+        <h3>Despertar Cósmico</h3>
+        <h4>Elementos circulares y trazos espaciales que invitan a un viaje interior y universal.</h4>
+        <p>Precio: $43.000</p>
+        <button onclick="agregarAlCarrito('Despertar Cósmico', 43000)">Agregar</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="item">
-  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-  <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/cuadro_medio.jpg" alt="Susurros del Otoño" onclick="abrirModal(this)">
-  <h3>Susurros del Otoño</h3>
-  <h4>Un instante de calma donde el viento pinta recuerdos.</h4>
-  <p>Precio: $48.000</p>
-  <button class="btn btn-secondary" disabled>Agotado</button>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/barco.jpg?raw=true" alt="Sueños del Mar Infinito" onclick="abrirModal(this)">
+        <h3>Sueños del Mar Infinito</h3>
+        <h4>Una figura femenina emerge del azul profundo, rodeada de símbolos místicos y energía oceánica.</h4>
+        <p>Precio: $45.000</p>
+        <button onclick="agregarAlCarrito('Sueños del Mar Infinito', 45000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo1.jpg?raw=true" alt="Raíces del Alma" onclick="abrirModal(this)">
+        <h3>Raíces del Alma</h3>
+        <h4>Una figura humana se funde con formas abstractas que evocan raíces y emociones profundas.</h4>
+        <p>Precio: $49.990</p>
+        <button onclick="agregarAlCarrito('Raíces del Alma', 49990)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo2.jpg?raw=true" alt="Despertar del Jaguar" onclick="abrirModal(this)">
+        <h3>Despertar del Jaguar</h3>
+        <h4>Ojos felinos vigilan con fuerza ancestral desde un mundo onírico lleno de simbolismo.</h4>
+        <p>Precio: $55.000</p>
+        <button onclick="agregarAlCarrito('Despertar del Jaguar', 55000)">Agregar</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="item">
-  <img src="https://i.imgur.com/pW9Tfg7.jpeg" alt="Horizonte Encendido" onclick="abrirModal(this)">
-  <h3>Horizonte Encendido</h3>
-  <h4>Cielo cálido con trazos expresivos y energéticos que evocan un atardecer ardiente.</h4>
-  <p>Precio: $38.000</p>
-  <button onclick="agregarAlCarrito('Horizonte Encendido', 38000)">Agregar</button>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/edificio.jpg?raw=true" alt="Fuego Interior" onclick="abrirModal(this)">
+        <h3>Fuego Interior</h3>
+        <h4>Una figura ardiente emerge entre llamas, representando pasión y transformación espiritual.</h4>
+        <p>Precio: $38.000</p>
+        <button onclick="agregarAlCarrito('Fuego Interior', 38000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Negrita.jpg?raw=true" alt="Alma Negra" onclick="abrirModal(this)">
+        <h3>Alma Negra</h3>
+        <h4>Una presencia imponente que encarna elegancia, poder y la profundidad espiritual de las raíces afrodescendientes.</h4>
+        <p>Precio: $47.000</p>
+        <button onclick="agregarAlCarrito('Alma Negra', 47000)">Agregar</button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/edificiorojos.jpg?raw=true" alt="Sabiduría Cósmica" onclick="abrirModal(this)">
+        <h3>Sabiduría Cósmica</h3>
+        <h4>Un rostro sabio entre símbolos estelares nos invita a conectarnos con el conocimiento oculto del universo.</h4>
+        <p>Precio: $48.990</p>
+        <button onclick="agregarAlCarrito('Sabiduría Cósmica', 48990)">Agregar</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="item">
-  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-  <img src="https://i.imgur.com/ckmdrOs.jpeg" alt="Sueños Vibrantes" onclick="abrirModal(this)">
-  <h3>Sueños Vibrantes</h3>
-  <h4>Colores vivos y formas dinámicas que expresan energía y creatividad en movimiento.</h4>
-  <p>Precio: $46.000</p>
-  <button class="btn btn-secondary" disabled>Agotado</button>
-</div>
+<div class="container">
+  <div class="row">
 
-<div class="item">
-  <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
-  <img src="https://i.imgur.com/OTtIXmi.jpeg" alt="Ritmo Silente" onclick="abrirModal(this)">
-  <h3>Ritmo Silente</h3>
-  <h4>Composición que transmite calma y ritmo pausado con tonos neutros y suaves.</h4>
-  <p>Precio: $44.000</p>
-  <button class="btn btn-secondary" disabled>Agotado</button>
-</div>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://i.imgur.com/Z2xDG3I.jpeg" alt="Reflejos del Alma" onclick="abrirModal(this)">
+        <h3>Reflejos del Alma</h3>
+        <h4>Tonos suaves y formas abstractas que transmiten calma y profundidad emocional.</h4>
+        <p>Precio: $42.000</p>
+        <button onclick="agregarAlCarrito('Reflejos del Alma', 42000)">Agregar</button>
+      </div>
+    </div>
 
-<div class="item">
-  <img src="https://i.imgur.com/Z2xDG3I.jpeg" alt="Reflejos del Alma" onclick="abrirModal(this)">
-  <h3>Reflejos del Alma</h3>
-  <h4>Tonos suaves y formas abstractas que transmiten calma y profundidad emocional.</h4>
-  <p>Precio: $42.000</p>
-  <button onclick="agregarAlCarrito('Reflejos del Alma', 42000)">Agregar</button>
-</div>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <div class="item">
+        <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Audrey%20Hepburnstencil.jpg?raw=true" alt="stencil" onclick="abrirModal(this)">
+        <h3>Audrey Hepburn stencil</h3>
+        <h4>Colores vibrantes y trazos místicos dan vida a un ser espiritual en proceso de transformación. Inspirada en la elegancia atemporal de Audrey Hepburn.</h4>
+        <p>Precio: $55.000</p>
+        <button onclick="agregarAlCarrito('Renacer Chamánico', 55000)">Agregar</button>
+      </div>
+    </div>
 
-<div class="item">
-  <img src="https://i.imgur.com/kfzhBCI.jpeg" alt="Paisaje Fragmentado" onclick="abrirModal(this)">
-  <h3>Paisaje Fragmentado</h3>
-  <h4>Composición moderna de líneas y bloques de color que recuerdan un entorno urbano estilizado.</h4>
-  <p>Precio: $40.000</p>
-  <button onclick="agregarAlCarrito('Paisaje Fragmentado', 40000)">Agregar</button>
+  </div>
 </div>
+<!-- fin de sección galería -->
 
-<div class="item">
-  <img src="https://i.imgur.com/F8RXNxZ.jpeg" alt="Energía Abstracta" onclick="abrirModal(this)">
-  <h3>Energía Abstracta</h3>
-  <h4>Movimiento caótico de formas y colores que simbolizan la intensidad creativa.</h4>
-  <p>Precio: $45.000</p>
-  <button onclick="agregarAlCarrito('Energía Abstracta', 45000)">Agregar</button>
-</div>
 
-<div class="item">
-  <img src="https://i.imgur.com/2JJI7yy.jpeg" alt="Despertar Cósmico" onclick="abrirModal(this)">
-  <h3>Despertar Cósmico</h3>
-  <h4>Elementos circulares y trazos espaciales que invitan a un viaje interior y universal.</h4>
-  <p>Precio: $43.000</p>
-  <button onclick="agregarAlCarrito('Despertar Cósmico', 43000)">Agregar</button>
-</div>
-
-<div class="item">
-  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/barco.jpg?raw=true" alt="Sueños del Mar Infinito" onclick="abrirModal(this)">
-  <h3>Sueños del Mar Infinito</h3>
-  <h4>Una figura femenina emerge del azul profundo, rodeada de símbolos místicos y energía oceánica.</h4>
-  <p>Precio: $45.000</p>
-  <button onclick="agregarAlCarrito('Sueños del Mar Infinito', 45000)">Agregar</button>
-</div>
-
-<div class="item">
-  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo1.jpg?raw=true" alt="Raíces del Alma" onclick="abrirModal(this)">
-  <h3>Raíces del Alma</h3>
-  <h4>Una figura humana se funde con formas abstractas que evocan raíces y emociones profundas.</h4>
-  <p>Precio: $49.990</p>
-  <button onclick="agregarAlCarrito('Raíces del Alma', 49990)">Agregar</button>
-</div>
-
-<div class="item">
-  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo2.jpg?raw=true" alt="Despertar del Jaguar" onclick="abrirModal(this)">
-  <h3>Despertar del Jaguar</h3>
-  <h4>Ojos felinos vigilan con fuerza ancestral desde un mundo onírico lleno de simbolismo.</h4>
-  <p>Precio: $55.000</p>
-  <button onclick="agregarAlCarrito('Despertar del Jaguar', 55000)">Agregar</button>
-</div>
-
-<div class="item">
-  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/edificio.jpg?raw=true" alt="Fuego Interior" onclick="abrirModal(this)">
-  <h3>Fuego Interior</h3>
-  <h4>Una figura ardiente emerge entre llamas, representando pasión y transformación espiritual.</h4>
-  <p>Precio: $38.000</p>
-  <button onclick="agregarAlCarrito('Fuego Interior', 38000)">Agregar</button>
-</div>
-
-<div class="item">
-  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Negrita.jpg?raw=true" alt="Alma Negra" onclick="abrirModal(this)">
-  <h3>Alma Negra</h3>
-  <h4>Una presencia imponente que encarna elegancia, poder y la profundidad espiritual de las raíces afrodescendientes.</h4>
-  <p>Precio: $47.000</p>
-  <button onclick="agregarAlCarrito('Alma Negra', 47000)">Agregar</button>
-</div>
-
-<div class="item">
-  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/edificiorojos.jpg?raw=true" alt="Sabiduría Cósmica" onclick="abrirModal(this)">
-  <h3>Sabiduría Cósmica</h3>
-  <h4>Un rostro sabio entre símbolos estelares nos invita a conectarnos con el conocimiento oculto del universo.</h4>
-  <p>Precio: $48.990</p>
-  <button onclick="agregarAlCarrito('Sabiduría Cósmica', 48990)">Agregar</button>
-</div>
-
-<div class="item">
-  <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Audrey%20Hepburnstencil.jpg?raw=true" alt="stencil" onclick="abrirModal(this)">
-  <h3>Audrey Hepburn stencil</h3>
-  <h4>Colores vibrantes y trazos místicos dan vida a un ser espiritual en proceso de transformación. Inspirada en la elegancia atemporal de Audrey Hepburn.</h4>
-  <p>Precio: $55.000</p>
-  <button onclick="agregarAlCarrito('Renacer Chamánico', 55000)">Agregar</button>
-</div>
-<section> <!--fin de seccion galeria-->
 
 <!-- CARRITO DE COMPRAS -->
 <section id="carrito" class="carrito">
