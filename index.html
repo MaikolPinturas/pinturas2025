@@ -174,6 +174,24 @@
       padding: 0.5rem 1rem;
       border-radius: 5px;
     }
+
+        .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+      min-height: 560px;
+    }
+
+    .item h3, .item h4, .item p {
+      margin-bottom: 0.5rem;
+    }
+
+    .item button {
+      margin-top: auto;
+    }
+
+    
   </style>
 </head>
 <body>
@@ -265,6 +283,7 @@
 
       window.open(whatsappUrl, '_blank');
     }
+
   </script>
 </head>
 <body>
@@ -293,11 +312,12 @@
 
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
       <div class="item">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
         <img src="https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg" alt="Raíz Serena" onclick="abrirModal(this)">
         <h3>Raíz Serena</h3>
         <h4>Representa la fuerza y tranquilidad ancestral que transmite su mirada. Una conexión con la herencia cultural y la serenidad interior.</h4>
         <p>Precio: $50.000</p>
-        <button onclick="agregarAlCarrito('Raíz Serena', 50000)">Agregar</button>
+        <button class="btn btn-secondary" disabled>Agotado</button>
       </div>
     </div>
 
@@ -334,11 +354,12 @@
 
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
       <div class="item">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
         <img src="https://i.imgur.com/pW9Tfg7.jpeg" alt="Horizonte Encendido" onclick="abrirModal(this)">
         <h3>Horizonte Encendido</h3>
         <h4>Cielo cálido con trazos expresivos y energéticos que evocan un atardecer ardiente.</h4>
         <p>Precio: $38.000</p>
-        <button onclick="agregarAlCarrito('Horizonte Encendido', 38000)">Agregar</button>
+        <button class="btn btn-secondary" disabled>Agotado</button>
       </div>
     </div>
 
@@ -372,11 +393,12 @@
 
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
       <div class="item">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
         <img src="https://i.imgur.com/kfzhBCI.jpeg" alt="Paisaje Fragmentado" onclick="abrirModal(this)">
         <h3>Paisaje Fragmentado</h3>
         <h4>Composición moderna de líneas y bloques de color que recuerdan un entorno urbano estilizado.</h4>
         <p>Precio: $40.000</p>
-        <button onclick="agregarAlCarrito('Paisaje Fragmentado', 40000)">Agregar</button>
+        <button class="btn btn-secondary" disabled>Agotado</button>
       </div>
     </div>
 
@@ -455,11 +477,12 @@
 
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
       <div class="item">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
         <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Negrita.jpg?raw=true" alt="Alma Negra" onclick="abrirModal(this)">
         <h3>Alma Negra</h3>
         <h4>Una presencia imponente que encarna elegancia, poder y la profundidad espiritual de las raíces afrodescendientes.</h4>
         <p>Precio: $47.000</p>
-        <button onclick="agregarAlCarrito('Alma Negra', 47000)">Agregar</button>
+        <button class="btn btn-secondary" disabled>Agotado</button>
       </div>
     </div>
 
@@ -491,13 +514,36 @@
 
     <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
       <div class="item">
+        <span class="badge bg-danger" style="position: absolute; top: 10px; left: 10px;">Agotado</span>
         <img src="https://github.com/MaikolPinturas/pinturas2025/blob/main/Audrey%20Hepburnstencil.jpg?raw=true" alt="stencil" onclick="abrirModal(this)">
         <h3>Audrey Hepburn stencil</h3>
         <h4>Colores vibrantes y trazos místicos dan vida a un ser espiritual en proceso de transformación. Inspirada en la elegancia atemporal de Audrey Hepburn.</h4>
         <p>Precio: $55.000</p>
-        <button onclick="agregarAlCarrito('Renacer Chamánico', 55000)">Agregar</button>
+        <button class="btn btn-secondary" disabled>Agotado</button>
       </div>
     </div>
+
+   <div class="col-sm-12 col-md-6 col-lg-4 mb-4 h-100">
+  <div class="item">
+    <img src="https://i.imgur.com/utRRzAz.jpeg" alt="Misterio Urbano" onclick="abrirModal(this)">
+    <h3>Misterio Urbano</h3>
+    <h4>Sombras y luces se mezclan en una calle sin nombre, atrapando el alma de la ciudad nocturna.</h4>
+    <p>Precio: $20.000</p>
+    <button onclick="agregarAlCarrito('Misterio Urbano', 20000)">Agregar</button>
+  </div>
+</div>
+
+<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+  <div class="item">
+    <img src="https://i.imgur.com/tGRjodN.jpeg" alt="Espejo del Alma" onclick="abrirModal(this)">
+    <div class="contenido" style="flex-grow: 1;">
+      <h3>Espejo del Alma</h3>
+      <h4>Retrato que revela emociones profundas, donde cada trazo refleja una historia no contada.</h4>
+      <p>Precio: $38.000</p>
+    </div>
+    <button onclick="agregarAlCarrito('Espejo del Alma', 38000)">Agregar</button>
+  </div>
+</div>
 
   </div>
 </div>
@@ -542,3 +588,4 @@
   </script>
 </body>
 </html>
+
