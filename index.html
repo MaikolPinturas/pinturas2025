@@ -306,6 +306,45 @@
     <p>Hola, soy Maikol Muñoz. Pinto cuadros inspirados en la naturaleza, los colores y las emociones. Aquí puedes ver algunas de mis obras y contactarme para encargos o ventas.</p>
   </section>
 
+   <!-- Modal para mostrar imagen ampliada y girarla -->
+  <div class="modal fade" id="modalImagen" tabindex="-1" aria-labelledby="modalImagenLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modalImagenLabel">Vista ampliada</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="imagenAmpliada" src="" alt="" class="img-fluid" style="transition: transform 0.3s;">
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-warning" onclick="rotarImagen()">🔄 Girar 90°</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Script para mostrar imagen en el modal y girarla -->
+  <script>
+    let rotacion = 0;
+
+    function abrirModal(imagen) {
+      const modal = new bootstrap.Modal(document.getElementById('modalImagen'));
+      const imagenModal = document.getElementById('imagenAmpliada');
+      imagenModal.src = imagen.src;
+      imagenModal.alt = imagen.alt;
+      rotacion = 0;
+      imagenModal.style.transform = `rotate(0deg)`;
+      modal.show();
+    }
+
+    function rotarImagen() {
+      rotacion = (rotacion + 90) % 360;
+      document.getElementById('imagenAmpliada').style.transform = `rotate(${rotacion}deg)`;
+    }
+  </script>
+
   <!-- GALERÍA DE PINTURAS -->
 <section class="galeria container" id="galeria">
   <div class="row">
@@ -588,5 +627,6 @@
   </script>
 </body>
 </html>
+
 
 
