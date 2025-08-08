@@ -628,5 +628,48 @@
 </body>
 </html>
 
+  <!-- Otros bloques de tu página aquí... -->
+
+  <!-- BLOQUE DE OPINIONES - PÉGALO AQUÍ -->
+  <section class="container my-5" id="opiniones">
+    <h2 class="text-center mb-4">¿Qué opinas de mi página?</h2>
+    <form onsubmit="enviarOpinion(event)">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Tu nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ej: Ana" required>
+      </div>
+      <div class="mb-3">
+        <label for="opinion" class="form-label">Tu opinión</label>
+        <textarea class="form-control" id="opinion" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar opinión</button>
+    </form>
+    <div class="mt-4" id="opiniones-lista"></div>
+  </section>
+
+  <script>
+    function enviarOpinion(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const opinion = document.getElementById('opinion').value.trim();
+
+      if (nombre && opinion) {
+        const div = document.createElement('div');
+        div.className = 'alert alert-secondary';
+        div.innerHTML = `<strong>${nombre}:</strong> ${opinion}`;
+        document.getElementById('opiniones-lista').appendChild(div);
+
+        document.getElementById('nombre').value = '';
+        document.getElementById('opinion').value = '';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
 
 
