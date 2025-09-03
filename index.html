@@ -95,9 +95,7 @@
 </head>
 <body>
  
-
-
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +117,6 @@
       <input id="buscadorInput" class="form-control me-2" type="search" placeholder="Buscador de Cuadros" aria-label="🔍 Buscador de Cuadros">
       <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
-
     </div>
   </div>
 </nav>
@@ -133,7 +130,6 @@
 </header>
 
 <main class="container">
-
   <!-- Ordenamiento -->
   <div class="filtro-container">
     <select id="filtro" class="form-select w-auto d-inline-block">
@@ -183,11 +179,8 @@
 </section>
 
 <!-- Botones flotantes -->
-<a href="https://wa.me/+56961269336" target="_blank" id="btn-wsp">
-  💬 Comprar por WhatsApp
-</a>
+<a href="https://wa.me/+56961269336" target="_blank" id="btn-wsp"> 💬 Comprar por WhatsApp </a>
 <button id="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Ir arriba" style="display: block;">⬆️</button>
-<button id="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Ir arriba">⬆️</button>
 
 <footer class="text-center mt-5 mb-3">
   <p>© 2025 Maikol Muñoz - Todos los derechos reservados</p>
@@ -205,7 +198,7 @@
     { nombre: "Ritmo Silente", imagen: "https://i.imgur.com/OTtIXmi.jpeg", descripcion: "Calma y ritmo pausado con tonos suaves.", precio: 44000, agotado: true },
     { nombre: "Paisaje Fragmentado", imagen: "https://i.imgur.com/kfzhBCI.jpeg", descripcion: "Líneas y bloques que recuerdan un entorno urbano.", precio: 40000, agotado: true },
     { nombre: "Energía Abstracta", imagen: "https://i.imgur.com/F8RXNxZ.jpeg", descripcion: "Movimiento caótico de formas y colores.", precio: 45000, agotado: false },
-    { nombre: "Despertar Cósmico", imagen: "https://i.imgur.com/2JJI7yy.jpeg", descripcion: "Trazos espaciales que invitan a un viaje interior.", precio: 43000, agotado: false },
+    { nombre: "Despertar Cósmico", imagen: "https://i.imgur.com/2JJI7yy.jpeg", descripcion: "Trazos espaciales que invitan a un viaje interior.", precio: 43000, agotado: true },
     { nombre: "Sueños del Mar Infinito", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/barco.jpg?raw=true", descripcion: "Figura femenina entre energía oceánica.", precio: 45000, agotado: false },
     { nombre: "Raíces del Alma", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo1.jpg?raw=true", descripcion: "Figura humana fusionada con raíces emocionales.", precio: 49990, agotado: false },
     { nombre: "Despertar del Jaguar", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo2.jpg?raw=true", descripcion: "Ojos felinos en un mundo lleno de simbolismo.", precio: 55000, agotado: false },
@@ -310,52 +303,32 @@
     window.open(`https://wa.me/+56961269336?text=${mensaje}`,"_blank");
   }
 
-  
   // Scroll top
   window.addEventListener('scroll', () => {
     const btnTop = document.getElementById('btn-top');
     btnTop.style.display = window.scrollY>200?'block':'none';
   });
-  
 
-    function enviarOpinion(event) {
-      event.preventDefault();
-
-      const nombre = document.getElementById('nombre').value.trim();
-      const opinion = document.getElementById('opinion').value.trim();
-
-      if (nombre && opinion) {
-        const div = document.createElement('div');
-        div.className = 'alert alert-secondary';
-        div.innerHTML = `<strong>${nombre}:</strong> ${opinion}`;
-        document.getElementById('opiniones-lista').appendChild(div);
-
-        document.getElementById('nombre').value = '';
-        document.getElementById('opinion').value = '';
-      }
+  function enviarOpinion(event) {
+    event.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const opinion = document.getElementById('opinion').value.trim();
+    if (nombre && opinion) {
+      const div = document.createElement('div');
+      div.className = 'alert alert-secondary';
+      div.innerHTML = `<strong>${nombre}:</strong> ${opinion}`;
+      document.getElementById('opiniones-lista').appendChild(div);
+      document.getElementById('nombre').value = '';
+      document.getElementById('opinion').value = '';
     }
-
+  }
 </script>
-<!-- BLOQUE DE OPINIONES - PÉGALO AQUÍ -->
-  <section class="container my-5" id="opiniones">
-    <h2 class="text-center mb-4">¿Qué opinas de mi página?</h2>
-    <form onsubmit="enviarOpinion(event)">
-      <div class="mb-3">
-        <label for="nombre" class="form-label">Tu nombre</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Ej: Ana" required>
-      </div>
-      <div class="mb-3">
-        <label for="opinion" class="form-label">Tu opinión</label>
-        <textarea class="form-control" id="opinion" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar opinión</button>
-    </form>
-    <div class="mt-4" id="opiniones-lista"></div>
-  </section>
 
-  
-</body>
-</html>
+<!-- BLOQUE DE OPINIONES -->
+<section class="container my-5" id="opiniones">
+  <h2 class="text-center
+
+
 
 
 
