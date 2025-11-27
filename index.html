@@ -2,333 +2,184 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pinturas de Maikol Muñoz</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Churrascas con Futuro 2.0</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background-color: #fff8f0;
-      color: #333;
+      padding: 20px;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffedd5, #fde68a, #fcd34d);
+      text-align: center;
+      background-attachment: fixed;
     }
-    header {
-      background-color: #a0522d;
+    h1 {
+      background: rgba(0,0,0,0.75);
       color: white;
-      padding: 2rem;
-      text-align: center;
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      margin-bottom: 15px;
     }
-    nav {
-      background-color: #f4e1d2;
-      padding: 0.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      text-align: center;
+    .hero-img {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 16px;
+      margin: 15px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #a0522d;
-      font-weight: bold;
+    .descripcion, .poema {
+      background: rgba(255,255,255,0.95);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 750px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+      font-size: 17px;
+      line-height: 1.6;
+      text-align: justify;
     }
-    .galeria {
-      padding: 2rem;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
-    .card {
-      height: 100%;
-      margin-bottom: 1rem;
+    .item {
+      background: rgba(255,255,255,0.95);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
     }
-    .card-img-top {
-      height: 250px;
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      height: 140px;
       object-fit: cover;
-      cursor: pointer;
+      border-radius: 12px;
+      margin-bottom: 8px;
     }
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .item h3 {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #b45309;
     }
-    #btn-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #a0522d;
-      color: white;
-      border: none;
-      padding: 0.7rem;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-    }
-    #btn-wsp {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
+    .item p {
+      margin: 0;
       font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      z-index: 1000;
-      transition: background-color 0.3s ease;
+      color: #831843;
     }
-    #btn-wsp:hover {
-      background-color: #1da851;
-    }
-    .carrito {
-      background-color: #fff0e6;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 1rem;
-      margin: 2rem;
-    }
-    .filtro-container {
-      margin: 20px 0;
-      text-align: right;
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #444;
     }
   </style>
 </head>
 <body>
- 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#galeria">Galeria</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#carrito">Carrito</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#formulario-encargos">Encargos</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search" id="buscadorForm">
-      <input id="buscadorInput" class="form-control me-2" type="search" placeholder="Buscador de Cuadros" aria-label="🔍 Buscador de Cuadros">
-      <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+
+  <h1>Churrascas con Futuro 2.0</h1>
+
+  <div class="descripcion">
+    Churrascas con Futuro es un emprendimiento creado y financiado por jóvenes del IP–IRC Talca, que promueve el espíritu emprendedor y la reinserción social. A través de la preparación y venta de churrascas, los participantes fortalecen habilidades laborales, el trabajo en equipo y la autonomía, construyendo oportunidades reales para su crecimiento personal y su aporte a la comunidad.
+  </div>
+
+  <div class="poema">
+    Gracias a la capacitación en Desarrollo Latam, hoy podemos convertir ideas en realidades.  
+    Lo que comenzó como un aprendizaje de páginas web, se transformó en una herramienta para emprender, crear y creer.  
+    Cada churrasca que ofrecemos no es solo un sabor: es esfuerzo, es reinvención y es esperanza.  
+    Churrascas con Futuro 2.0 demuestra que con apoyo, dedicación y ganas de avanzar, cualquier joven puede construir nuevas oportunidades.
+  </div>
+
+  <div class="grid">
+
+    <div class="item">
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Mantequilla">
+      <h3>Mantequilla</h3>
+      <p>$1.000</p>
     </div>
-  </div>
-</nav>
 
-<header>
-  <h1>Pinturas de Maikol Muñoz</h1>
-  <p>Arte hecho con pasión, amor y color</p>
-  <p style="font-size: 1rem; margin-top: 10px;">
-    Tengo 19 años y comencé a pintar a los 17, mientras estaba privado de libertad. Desde entonces descubrí en el acrílico sobre tela una pasión que me llena, me alegra y me hace sentir libre. Pintar se convirtió en mi forma de sanar, de expresarme y de dar color a la vida.
-  </p>
-</header>
-
-<main class="container">
-  <!-- Ordenamiento -->
-  <div class="filtro-container">
-    <select id="filtro" class="form-select w-auto d-inline-block">
-      <option value="recomendados">Recomendados</option>
-      <option value="menor">Precio: Menor a mayor</option>
-      <option value="mayor">Precio: Mayor a menor</option>
-      <option value="nombre">Ordenar por nombre</option>
-    </select>
-  </div>
-
-  <!-- Galería -->
-  <div class="row" id="galeria"></div>
-</main>
-
-<!-- Modal de imagen -->
-<div class="modal fade" id="modalImagen" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Vista ampliada</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img id="imagenAmpliada" src="" class="img-fluid" style="transition: transform 0.3s;">
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-warning" onclick="rotarImagen()">🔄 Girar 90°</button>
-      </div>
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Queso">
+      <h3>Queso</h3>
+      <p>$1.400</p>
     </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Jamón">
+      <h3>Jamón</h3>
+      <p>$1.300</p>
+    </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Queso + Jamón">
+      <h3>Queso + Jamón</h3>
+      <p>$1.800</p>
+    </div>
+
+    <div class="item">
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Doble Queso">
+      <h3>Doble Queso</h3>
+      <p>$1.800</p>
+    </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Doble Jamón">
+      <h3>Doble Jamón</h3>
+      <p>$1.700</p>
+    </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Queso + Palta">
+      <h3>Queso + Palta</h3>
+      <p>$2.000</p>
+    </div>
+
+    <div class="item">
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Arrollado">
+      <h3>Arrollado</h3>
+      <p>$2.000</p>
+    </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Ave Mayo">
+      <h3>Ave Mayo</h3>
+      <p>$2.000</p>
+    </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Arrollado + Palta">
+      <h3>Arrollado + Palta</h3>
+      <p>$2.200</p>
+    </div>
+
+    <div class="item">
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Vaso de bebida">
+      <h3>Vaso de bebida</h3>
+      <p>$500</p>
+    </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Agua mineral">
+      <h3>Agua mineral</h3>
+      <p>$500</p>
+    </div>
+
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Café">
+      <h3>Café</h3>
+      <p>$1.000</p>
+    </div>
+
   </div>
-</div>
 
-<!-- Carrito -->
-<section id="carrito" class="carrito">
-  <h2>Carrito de Compras</h2>
-  <ul id="lista-carrito"></ul>
-  <p id="total" style="margin-top: 1rem;"><strong>Total: $0</strong></p>
-  <button onclick="enviarPedido()" class="btn btn-success mt-2">Enviar Pedido por WhatsApp</button>
-</section>
+  <p class="footer">Gracias por apoyar a Churrascas con Futuro 2.0 ❤️</p>
 
-<!-- Encargos -->
-<section class="container mt-5" id="formulario-encargos">
-  <h2 class="mb-4">🎨 Encargos Personalizados</h2>
-  <p>¿Quieres un cuadro único y personalizado? Escríbeme directamente por WhatsApp:</p>
-  <a href="https://wa.me/56961269336?text=Hola%2C%20quiero%20encargar%20un%20cuadro%20personalizado" class="btn btn-primary">Encargar por WhatsApp</a>
-</section>
-
-<!-- Botones flotantes -->
-<a href="https://wa.me/+56961269336" target="_blank" id="btn-wsp"> 💬 Comprar por WhatsApp </a>
-<button id="btn-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Ir arriba" style="display: block;">⬆️</button>
-
-<footer class="text-center mt-5 mb-3">
-  <p>© 2025 Maikol Muñoz - Todos los derechos reservados</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-  const cuadros = [
-    { nombre: "Raíz Serena", imagen: "https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/Africana.jpg", descripcion: "Representa la fuerza y tranquilidad ancestral que transmite su mirada.", precio: 50000, agotado: true },
-    { nombre: "Ritmo Abstracto", imagen: "https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/gitarra.jpg", descripcion: "Conexión entre música y emoción.", precio: 52000, agotado: true },
-    { nombre: "Susurros del Otoño", imagen: "https://raw.githubusercontent.com/MaikolPinturas/pinturas2025/main/cuadro_medio.jpg", descripcion: "Un instante de calma donde el viento pinta recuerdos.", precio: 48000, agotado: true },
-    { nombre: "Horizonte Encendido", imagen: "https://i.imgur.com/pW9Tfg7.jpeg", descripcion: "Cielo cálido que evoca un atardecer ardiente.", precio: 38000, agotado: true },
-    { nombre: "Sueños Vibrantes", imagen: "https://i.imgur.com/ckmdrOs.jpeg", descripcion: "Colores vivos y dinámicos que expresan energía.", precio: 46000, agotado: true },
-    { nombre: "Ritmo Silente", imagen: "https://i.imgur.com/OTtIXmi.jpeg", descripcion: "Calma y ritmo pausado con tonos suaves.", precio: 44000, agotado: true },
-    { nombre: "Paisaje Fragmentado", imagen: "https://i.imgur.com/kfzhBCI.jpeg", descripcion: "Líneas y bloques que recuerdan un entorno urbano.", precio: 40000, agotado: true },
-    { nombre: "Energía Abstracta", imagen: "https://i.imgur.com/F8RXNxZ.jpeg", descripcion: "Movimiento caótico de formas y colores.", precio: 45000, agotado: false },
-    { nombre: "Despertar Cósmico", imagen: "https://i.imgur.com/2JJI7yy.jpeg", descripcion: "Trazos espaciales que invitan a un viaje interior.", precio: 43000, agotado: true },
-    { nombre: "Sueños del Mar Infinito", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/barco.jpg?raw=true", descripcion: "Figura femenina entre energía oceánica.", precio: 45000, agotado: false },
-    { nombre: "Raíces del Alma", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo1.jpg?raw=true", descripcion: "Figura humana fusionada con raíces emocionales.", precio: 49990, agotado: false },
-    { nombre: "Despertar del Jaguar", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/cielo2.jpg?raw=true", descripcion: "Ojos felinos en un mundo lleno de simbolismo.", precio: 55000, agotado: false },
-    { nombre: "Fuego Interior", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/edificio.jpg?raw=true", descripcion: "Figura ardiente entre llamas.", precio: 38000, agotado: false },
-    { nombre: "Alma Negra", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/Negrita.jpg?raw=true", descripcion: "Elegancia, poder y raíces afrodescendientes.", precio: 47000, agotado: true },
-    { nombre: "Sabiduría Cósmica", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/edificiorojos.jpg?raw=true", descripcion: "Rostro sabio entre símbolos estelares.", precio: 48990, agotado: false },
-    { nombre: "Reflejos del Alma", imagen: "https://i.imgur.com/Z2xDG3I.jpeg", descripcion: "Formas abstractas que transmiten calma y profundidad.", precio: 42000, agotado: false },
-    { nombre: "Audrey Hepburn stencil", imagen: "https://github.com/MaikolPinturas/pinturas2025/blob/main/Audrey%20Hepburnstencil.jpg?raw=true", descripcion: "Inspirada en la elegancia atemporal de Hepburn.", precio: 55000, agotado: true },
-    { nombre: "Misterio Urbano", imagen: "https://i.imgur.com/utRRzAz.jpeg", descripcion: "Sombras y luces que atrapan el alma de la ciudad.", precio: 20000, agotado: false },
-    { nombre: "Espejo del Alma", imagen: "https://i.imgur.com/tGRjodN.jpeg", descripcion: "Retrato que refleja emociones profundas.", precio: 28000, agotado: false }
-  ];
-
-  const galeria = document.getElementById("galeria");
-  const filtro = document.getElementById("filtro");
-
-  function mostrarCuadros(lista) {
-    galeria.innerHTML = "";
-    lista.forEach(cuadro => {
-      const col = document.createElement("div");
-      col.className = "col-sm-12 col-md-6 col-lg-4 mb-4";
-      col.innerHTML = `
-        <div class="card shadow">
-          <img src="${cuadro.imagen}" class="card-img-top" alt="${cuadro.nombre}" onclick="abrirModal(this)">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">${cuadro.nombre}</h5>
-            <p class="card-text">${cuadro.descripcion}</p>
-            <p class="fw-bold">$${cuadro.precio.toLocaleString("es-CL")}</p>
-            ${
-              cuadro.agotado
-                ? '<span class="btn btn-danger">Agotado</span>'
-                : `<a href="https://wa.me/56961269336?text=Hola%20Maikol,%20quiero%20comprar%20el%20cuadro%20${encodeURIComponent(cuadro.nombre)}" class="btn btn-success mt-auto">Comprar</a>`
-            }
-          </div>
-        </div>
-      `;
-      galeria.appendChild(col);
-    });
-  }
-
-  function ordenarCuadros(criterio) {
-    let listaOrdenada = [...cuadros];
-    if (criterio === "menor") listaOrdenada.sort((a,b)=>a.precio-b.precio);
-    else if (criterio === "mayor") listaOrdenada.sort((a,b)=>b.precio-a.precio);
-    else if (criterio === "nombre") listaOrdenada.sort((a,b)=>a.nombre.localeCompare(b.nombre));
-    mostrarCuadros(listaOrdenada);
-  }
-
-  filtro.addEventListener("change", e => ordenarCuadros(e.target.value));
-  mostrarCuadros(cuadros);
-
-  // Buscador
-  document.getElementById("buscadorForm").addEventListener("submit", e=>{
-    e.preventDefault();
-    const valor = document.getElementById("buscadorInput").value.toLowerCase();
-    const filtrados = cuadros.filter(c=>c.nombre.toLowerCase().includes(valor));
-    mostrarCuadros(filtrados);
-  });
-
-  // Modal
-  let rotacion = 0;
-  function abrirModal(img){
-    const modalImg = document.getElementById("imagenAmpliada");
-    modalImg.src = img.src;
-    modalImg.alt = img.alt;
-    rotacion=0;
-    modalImg.style.transform="rotate(0deg)";
-    new bootstrap.Modal(document.getElementById('modalImagen')).show();
-  }
-  function rotarImagen(){
-    rotacion=(rotacion+90)%360;
-    document.getElementById("imagenAmpliada").style.transform=`rotate(${rotacion}deg)`;
-  }
-
-  // Carrito
-  const carrito = [];
-  function agregarAlCarrito(nombre, precio){
-    carrito.push({nombre, precio});
-    actualizarCarrito();
-  }
-  function actualizarCarrito(){
-    const lista=document.getElementById("lista-carrito");
-    lista.innerHTML="";
-    let total=0;
-    carrito.forEach((item,index)=>{
-      total+=item.precio;
-      const li=document.createElement("li");
-      li.innerHTML=`${item.nombre} - $${item.precio.toLocaleString()} <button onclick="eliminarDelCarrito(${index})">❌</button>`;
-      lista.appendChild(li);
-    });
-    document.getElementById("total").textContent=`Total: $${total.toLocaleString()}`;
-  }
-  function eliminarDelCarrito(index){
-    carrito.splice(index,1);
-    actualizarCarrito();
-  }
-  function enviarPedido(){
-    if(carrito.length===0){alert("Tu carrito está vacío."); return;}
-    let mensaje="Hola, quiero comprar los siguientes cuadros:%0A";
-    carrito.forEach(item=>mensaje+=`- ${item.nombre}: $${item.precio.toLocaleString()}%0A`);
-    const total=carrito.reduce((sum,item)=>sum+item.precio,0);
-    mensaje+=`%0ATotal: $${total.toLocaleString()}`;
-    window.open(`https://wa.me/+56961269336?text=${mensaje}`,"_blank");
-  }
-
-  // Scroll top
-  window.addEventListener('scroll', () => {
-    const btnTop = document.getElementById('btn-top');
-    btnTop.style.display = window.scrollY>200?'block':'none';
-  });
-
-  function enviarOpinion(event) {
-    event.preventDefault();
-    const nombre = document.getElementById('nombre').value.trim();
-    const opinion = document.getElementById('opinion').value.trim();
-    if (nombre && opinion) {
-      const div = document.createElement('div');
-      div.className = 'alert alert-secondary';
-      div.innerHTML = `<strong>${nombre}:</strong> ${opinion}`;
-      document.getElementById('opiniones-lista').appendChild(div);
-      document.getElementById('nombre').value = '';
-      document.getElementById('opinion').value = '';
-    }
-  }
-</script>
-
-<!-- BLOQUE DE OPINIONES -->
-<section class="container my-5" id="opiniones">
-  <h2 class="text-center
-
-
+</body>
+</html>
 
 
 
