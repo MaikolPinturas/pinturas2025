@@ -2,163 +2,181 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pinturas de Maikol Muñoz</title>
-
-  
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Churrascas con Futuro 2.0</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background-color: #fff8f0;
-      color: #333;
+      padding: 20px;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffedd5, #fde68a, #fcd34d);
+      text-align: center;
+      background-attachment: fixed;
     }
-
-    header {
-      background-color: #a0522d;
+    h1 {
+      background: rgba(0,0,0,0.75);
       color: white;
-      padding: 2rem;
-      text-align: center;
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      margin-bottom: 15px;
     }
-
-    section.intro {
-      padding: 2rem;
-      text-align: center;
+    .hero-img {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 16px;
+      margin: 15px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
-
-    .galeria {
+    .descripcion, .poema {
+      background: rgba(255,255,255,0.95);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 750px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+      font-size: 17px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
-
-
-    .item button {
-      background-color: #a0522d;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 5px;
+    .item {
+      background: rgba(255,255,255,0.95);
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
     }
-
-    .item button:hover {
-      background-color: #8b4513;
+    .item:hover {
+      transform: scale(1.05);
     }
-
-    .carrito {
-      padding: 2rem;
-      background-color: #f4e1d2;
+    .item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 8px;
     }
-
-    .carrito h2 {
-      margin-top: 0;
+    .item h3 {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #b45309;
     }
-
-    footer {
-      background-color: #f4e1d2;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .redes a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #a0522d;
+    .item p {
+      margin: 0;
       font-weight: bold;
+      color: #831843;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #444;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Pinturas de Maikol Muñoz</h1>
-    <p>Arte hecho con pasión, amor y color</p>
-  </header>
+  <h1>Churrascas con Futuro 2.0</h1>
 
-  <section class="intro">
-    <h2>Bienvenidos a mi página</h2>
-    <p>Hola, soy Maikol Muñoz. Pinto cuadros inspirados en la naturaleza, los colores y las emociones. Aquí puedes ver algunas de mis obras y contactarme para encargos o ventas.</p>
-  </section>
+  <div class="descripcion">
+    Churrascas con Futuro es un emprendimiento creado y financiado por jóvenes del IP–IRC Talca, que promueve el espíritu emprendedor y la reinserción social. A través de la preparación y venta de churrascas, los participantes fortalecen habilidades laborales, el trabajo en equipo y la autonomía, construyendo oportunidades reales para su crecimiento personal y su aporte a la comunidad.
+  </div>
 
-  <section class="galeria">
+  <div class="poema">
+    Gracias a la capacitación en Desarrollo Latam, hoy podemos convertir ideas en realidades.  
+    Lo que comenzó como un aprendizaje de páginas web, se transformó en una herramienta para emprender, crear y creer.  
+    Cada churrasca que ofrecemos no es solo un sabor: es esfuerzo, es reinvención y es esperanza.  
+    Churrascas con Futuro 2.0 demuestra que con apoyo, dedicación y ganas de avanzar, cualquier joven puede construir nuevas oportunidades.
+  </div>
+
+  <div class="grid">
+
     <div class="item">
-      <img src="c:\Users\TALLER02\Downloads\IMG-20250612-WA0024.jpg" alt="Cuadro Africana">
-      <h3>Africana</h3>
-      <p>Precio: $50.000</p>
-      <button onclick="agregarAlCarrito('Africana', 50000)">Agregar al carrito</button>
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Mantequilla">
+      <h3>Mantequilla</h3>
+      <p>$1.000</p>
     </div>
+
     <div class="item">
-      <img src="c:\Users\TALLER02\Downloads\IMG-20250612-WA0022.jpg" alt="Cuadro Negrita">
-      <h3>Negrita</h3>
-      <p>Precio: $49.990</p>
-      <button onclick="agregarAlCarrito('Negrita', 49990)">Agregar al carrito</button>
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Queso">
+      <h3>Queso</h3>
+      <p>$1.400</p>
     </div>
-  </section>
 
-  <section class="carrito">
-    <h2>Carrito de compras</h2>
-    <ul id="lista-carrito"></ul>
-    <p id="total">Total: $0</p>
-    <button onclick="enviarPedido()">Enviar pedido</button>
-  </section>
-
-  <footer>
-    <div class="redes">
-      <a href="https://instagram.com">Instagram</a>
-      <a href="https://facebook.com">Facebook</a>
-      <a href="mailto:maikol.munozc@gmail.com">Email</a>
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Jamón">
+      <h3>Jamón</h3>
+      <p>$1.300</p>
     </div>
-    <p>&copy; 2025 Maikol Muñoz - Todos los derechos reservados</p>
-  </footer>
 
-  <script>
-    let carrito = [];
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Queso + Jamón">
+      <h3>Queso + Jamón</h3>
+      <p>$1.800</p>
+    </div>
 
-    function agregarAlCarrito(nombre, precio) {
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
-    }
+    <div class="item">
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Doble Queso">
+      <h3>Doble Queso</h3>
+      <p>$1.800</p>
+    </div>
 
-    function actualizarCarrito() {
-      const lista = document.getElementById("lista-carrito");
-      const total = document.getElementById("total");
-      lista.innerHTML = "";
-      let suma = 0;
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Doble Jamón">
+      <h3>Doble Jamón</h3>
+      <p>$1.700</p>
+    </div>
 
-      carrito.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.nombre} - $${item.precio.toLocaleString()}`;
-        lista.appendChild(li);
-        suma += item.precio;
-      });
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Queso + Palta">
+      <h3>Queso + Palta</h3>
+      <p>$2.000</p>
+    </div>
 
-      total.textContent = `Total: $${suma.toLocaleString()}`;
-    }
+    <div class="item">
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Arrollado">
+      <h3>Arrollado</h3>
+      <p>$2.000</p>
+    </div>
 
-    function enviarPedido() {
-      if (carrito.length === 0) {
-        alert("El carrito está vacío.");
-        return;
-      }
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Ave Mayo">
+      <h3>Ave Mayo</h3>
+      <p>$2.000</p>
+    </div>
 
-      let mensaje = "Hola, quiero comprar los siguientes cuadros:\n";
-      carrito.forEach(item => {
-        mensaje += `- ${item.nombre} ($${item.precio.toLocaleString()})\n`;
-      });
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Arrollado + Palta">
+      <h3>Arrollado + Palta</h3>
+      <p>$2.200</p>
+    </div>
 
-      const total = carrito.reduce((sum, item) => sum + item.precio, 0);
-      mensaje += `\nTotal: $${total.toLocaleString()}`;
+    <div class="item">
+      <img src="https://cugat.cl/wp-content/uploads/2024/05/churrasca-1.png" alt="Vaso de bebida">
+      <h3>Vaso de bebida</h3>
+      <p>$500</p>
+    </div>
 
-      const whatsapp = "https://wa.me/56936692045?text=" + encodeURIComponent(mensaje);
-      window.open(whatsapp, "_blank");
-    }
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras5.jpg" alt="Agua mineral">
+      <h3>Agua mineral</h3>
+      <p>$500</p>
+    </div>
 
-    
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </script>
+    <div class="item">
+      <img src="https://www.delicias101.cl/churras1.jpg" alt="Café">
+      <h3>Café</h3>
+      <p>$1.000</p>
+    </div>
+
+  </div>
+
+  <p class="footer">Gracias por apoyar a Churrascas con Futuro 2.0 ❤️</p>
 
 </body>
 </html>
